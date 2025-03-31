@@ -1,0 +1,10 @@
+
+dependencies {
+    implementation project(':LavoramaModel')
+    implementation project(':LavoramaServices')
+    implementation "org.springframework.boot:spring-boot-starter-security:${versions.springboot}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jdbc:${versions.springboot}"
+    implementation "org.springframework.data:spring-data-rest-webmvc:${versions.springboot}"
+
+    compileOnly "jakarta.servlet:jakarta.servlet-api:6.1.0"
+}

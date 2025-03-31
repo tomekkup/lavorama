@@ -1,0 +1,28 @@
+plugins {
+    id "org.springframework.boot" version "3.4.4"
+    id "io.spring.dependency-management" version "1.1.7"
+}
+
+apply plugin: "org.springframework.boot"
+
+
+
+dependencies {
+    implementation project(':LavoramaModel')
+    implementation project(':LavoramaSecurity')
+    implementation project(':LavoramaServices')
+
+    implementation "org.joinfaces:primefaces-spring-boot-starter:${versions.joinfaces}"
+    implementation "org.joinfaces:adminfaces-spring-boot-starter:${versions.joinfaces}"
+    implementation "org.joinfaces:rewrite-spring-boot-starter:${versions.joinfaces}"
+    implementation "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springboot}"
+    implementation "org.springframework.boot:spring-boot-starter-web:${versions.springboot}"
+    implementation "jakarta.faces:jakarta.faces-api:4.0.1"
+
+    implementation "org.ocpsoft.rewrite:rewrite-config-prettyfaces:10.0.2.Final"
+    implementation "org.ocpsoft.prettytime:prettytime:5.0.9.Final"
+    implementation "org.ocpsoft.prettytime:prettytime-integration-jsf:5.0.9.Final"
+
+    runtimeOnly 'com.h2database:h2:1.4.200'
+
+}

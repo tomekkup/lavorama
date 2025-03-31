@@ -1,0 +1,42 @@
+plugins {
+    id 'java' //or 'war'
+    id "io.freefair.lombok" version "6.3.0"
+    id "io.spring.dependency-management" version "1.1.7"
+}
+
+ext {
+    versions = [
+        springboot   : '3.4.4',
+        springcontentfs : '3.0.10',
+        joinfaces    : '5.4.4',
+        lombok       : '1.18.36'
+    ]
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+allprojects {
+    group = 'com.shiri.lavorama'
+    version = '1.2.3'
+    repositories {
+    mavenLocal()
+    mavenCentral() // maven { url: 'http://jcenter.bintray.com' }
+  }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+
+    sourceCompatibility = 17
+
+    dependencies {
+        implementation "org.projectlombok:lombok:${versions.lombok}"
+        annotationProcessor "org.projectlombok:lombok:${versions.lombok}"
+
+        implementation 'com.google.guava:guava:30.1.1-jre'
+        implementation 'org.apache.commons:commons-lang3:3.10'
+    }
+}
