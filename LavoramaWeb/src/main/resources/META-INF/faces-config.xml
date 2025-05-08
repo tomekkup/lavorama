@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://xmlns.jcp.org/xml/ns/javaee" version="2.3">
+
+    <application>
+        <el-resolver>
+            org.springframework.web.jsf.el.SpringBeanFacesELResolver
+        </el-resolver>
+        <el-resolver>
+            org.primefaces.application.exceptionhandler.PrimeExceptionHandlerELResolver
+        </el-resolver>
+        <locale-config>
+            <default-locale>pl</default-locale>
+        </locale-config>
+        <message-bundle>ValidationMessages</message-bundle>
+        <resource-bundle>
+            <base-name>Language</base-name>
+            <var>i18n</var>
+        </resource-bundle>
+    </application>
+
+    <factory>
+        <exception-handler-factory>
+            org.primefaces.application.exceptionhandler.PrimeExceptionHandlerFactory
+        </exception-handler-factory>
+    </factory>
+
+    <lifecycle>
+        <phase-listener>
+            org.springframework.web.jsf.DelegatingPhaseListenerMulticaster
+        </phase-listener>
+        <phase-listener>com.ocpsoft.pretty.faces.event.MultiPageMessagesSupport</phase-listener>
+    </lifecycle>
+
+    <render-kit>
+        <renderer>
+            <description>Form rendered providing CSRF</description>
+            <component-family>javax.faces.Form</component-family>
+            <renderer-type>javax.faces.Form</renderer-type>
+            <renderer-class>pl.tomekkup.lavorama.web.renderkit.FormWithCSRFRenderer</renderer-class>
+        </renderer>
+    </render-kit>
+</faces-config>

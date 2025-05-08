@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretty-config xmlns="http://ocpsoft.org/schema/rewrite-config-prettyfaces"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xsi:schemaLocation="http://ocpsoft.org/schema/rewrite-config-prettyfaces http://ocpsoft.org/xml/ns/prettyfaces/rewrite-config-prettyfaces.xsd">
+
+    <!-- DASHBOARD -->
+    <url-mapping id="index">
+        <pattern value="/"/>
+        <view-id value="/views/index.xhtml"/>
+    </url-mapping>
+
+    <!-- AUTHENTICATION -->
+    <url-mapping id="login">
+        <pattern value="/login"/>
+        <view-id value="/views/authentication/login.xhtml"/>
+    </url-mapping>
+
+    <url-mapping id="administration-users">
+        <pattern value="/administration/users"/>
+        <view-id value="/views/administration/users/index.xhtml"/>
+    </url-mapping>
+
+</pretty-config>
