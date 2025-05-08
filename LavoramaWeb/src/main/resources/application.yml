@@ -1,0 +1,111 @@
+joinfaces:
+  primefaces:
+    font-awesome: true
+    theme: "admin"
+  jsf:
+    project-stage: Development
+    default-suffix: ".xhtml"
+    facelets-refresh-period: 1
+    partial-state-saving: true
+  rewrite:
+    annotation-config-provider:
+      enabled: false
+    scan-classes-directory: off
+
+lavorama:
+  dev-mode:
+    username: "foo-user"
+    password: "foo-password"
+  content-store:
+    path: "C:\\temp\\lavorama"
+
+spring:
+  application:
+    name: lavorama
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      enabled: false
+  main:
+    banner-mode: "console"
+  cache:
+    jcache:
+      config: "classpath:ehcache.xml"
+      provider: org.ehcache.jsr107.EhcacheCachingProvider
+  servlet:
+    multipart:
+      enabled: true
+  session:
+    timeout: 20
+  output:
+    ansi:
+      enabled: always
+  datasource:
+    driver-class-name: "org.h2.Driver"
+    url: "jdbc:h2:mem:lavorama"
+    username: "sa"
+    password: "password"
+    hikari:
+      connection-timeout: 30000
+      idle-timeout: 600000
+      max-lifetime: 1800000
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: "org.hibernate.dialect.H2Dialect"
+        jdbc:
+          lob:
+            non-contextual-creation: true
+    open-in-view: true
+    show-sql: true
+    defer-datasource-initialization: true
+  sql:
+    init:
+      platform: "h2"
+      mode: ALWAYS
+      data-locations: "classpath:sample-data.sql"
+
+server:
+  port: 9999
+  error:
+    whitelabel:
+      enabled: false
+    include-exception: true
+    include-stacktrace: always
+
+logging:
+  level:
+    root: info
+    org.springframework.web: info
+    org.springframework.security: debug
+    org.hibernate: info
+    com.ctl: debug
+    javax.mail: info
+    pl.tomekkup.lavorama: debug
+    org.ocpsoft.rewrite: info
+  pattern:
+    console: "%date %highlight(%-5level) [%12.12thread] %cyan(%-40.40logger{40}) : %msg %n"
+    file: "%d %-6level [%t] %logger{25} - %msg %n"
+  file:
+    name: ./log/application.log
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    shutdown:
+      enabled: true
+    sessions:
+      enabled: true
+    auditevents:
+      enabled: true
+  health:
+    ping:
+      enabled: true
+  auditevents:
+    enabled: true
