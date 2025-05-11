@@ -5,8 +5,6 @@ plugins {
 
 apply plugin: "org.springframework.boot"
 
-
-
 dependencies {
     implementation project(':LavoramaModel')
     implementation project(':LavoramaSecurity')
@@ -17,6 +15,7 @@ dependencies {
     implementation "org.joinfaces:rewrite-spring-boot-starter:${versions.joinfaces}"
     implementation "org.springframework.boot:spring-boot-starter-data-jpa:${versions.springboot}"
     implementation "org.springframework.boot:spring-boot-starter-web:${versions.springboot}"
+    developmentOnly("org.springframework.boot:spring-boot-devtools:${versions.springboot}")
     implementation "jakarta.faces:jakarta.faces-api:4.0.1"
 
     implementation "org.ocpsoft.rewrite:rewrite-config-prettyfaces:10.0.2.Final"

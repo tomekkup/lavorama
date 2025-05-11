@@ -1,0 +1,5 @@
+rootProject.name = 'Lavorama'
+include 'LavoramaWeb'
+include 'LavoramaModel'
+include 'LavoramaServices'
+include 'LavoramaSecurity'
